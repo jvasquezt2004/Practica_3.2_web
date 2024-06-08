@@ -1,3 +1,25 @@
+import { useState } from "react";
+
 export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  const handleAddTask = () => {
+    if (task.trim() !== "") {
+      setTasks([...tasks, task]);
+      setTask("");
+    }
+  };
+
+  const handleDeleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
+
+  return(
+    <>
+      <section>
+        Hello world
+      </section>
+    </>
+  )
 }
